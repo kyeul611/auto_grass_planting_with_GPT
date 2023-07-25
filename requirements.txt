@@ -1,0 +1,8 @@
+pymysql
+selenium
+beautifulsoup4
+pandas
+requests
+openai
+lxml
+python-dotenv
