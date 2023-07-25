@@ -13,8 +13,15 @@ class DBUpdater:
     def __init__(self, db_pw):
         """
         생성자 : mysql 연결 
-        최초 실행시 테이블을 생성한다.
+        최초 실행시 데이터베이스와 테이블을 생성한다.
         """
+        self.conn = pymysql.connect(host='localhost',user='root', password=db_pw)
+        
+        with self.conn.cursor() as curs:
+            sql='CREATE DATABASE baekjoon;'
+            curs.execute(sql)
+        self.conn.commit()
+
 
         self.conn = pymysql.connect(host='localhost', user='root', password=db_pw, db='baekjoon', charset='utf8')
 
